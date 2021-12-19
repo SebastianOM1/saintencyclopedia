@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table">
+    <thead class="thead-inverse">
+        <tr>
+        <th>Name</th>
+        <th>Birth</th>
+        <th>Death</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for saint in saints %}
+        <tr>
+            <td>
+            <a href="{% url 'saint_page' saint.id %}">{{ saint.name }}</a>
+            <small class="text-muted d-block">{{ saint.description }}</small>
+            </td>
+            <td class="align-middle">{% if saint.birthPlace != null %}
+                {{saint.birthYear}}<br>
+                <small>{{saint.birthPlace}}</small>
+            {%else%}
+                {{ saint.birthYear }}
+            {%endif%}</td>
+            <td class="align-middle">{% if saint.deathPlace != null %}
+                {{saint.deathYear}}<br>
+                <small>{{saint.deathPlace}}</small>
+            {%else%}
+                {{ saint.deathYear }}
+            {%endif%}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{%endblock%}

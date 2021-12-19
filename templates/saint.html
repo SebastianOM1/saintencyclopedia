@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title%}
+    {{ saint.name }} - {{ block.super }}
+{%endblock%}
+
+{% block content %}
+<a href={% url 'home' %} class="btn btn-primary float-right" role="button">All Saints</a>
+
+{% load static %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col wrapper">
+        <div class="card" style="width:350px">
+            <img class="card-img-top" src={{ saint.art.url }} alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">{{ saint.name }}</h4>
+                <p class="card-text"><b>Birth: </b>  {{ saint.birthMonth }}/{{ saint.birthDay }}/{{ saint.birthYear }}</p>
+                <p class="card-text"><b>Death: </b>  {{ saint.deathMonth }}/{{ saint.deathDay }}/{{ saint.deathYear }}</p>
+                <a href="#" class="btn btn-primary"><small>Add a miracle</small></a>
+                <a href="new" class="btn btn-primary"><small>Add artwork</small></a>                
+                <a href="#" class="btn btn-primary"><small>Add a prayer</small></a>
+            </div>
+        </div>
+<!-- Nav pills -->
+<ul class="nav nav-tabs nav-justified">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#home">Biography</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu1">Miracles</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu2">Artwork</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu2">Prayers</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane container active" id="home">...</div>
+  <div class="tab-pane container fade" id="menu1">...</div>
+  <div class="tab-pane container fade" id="menu2">...</div>
+</div>
+</ul>
+    </div>
+  </div>  
+</div>
+
+{%endblock%}
